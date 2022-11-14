@@ -10,12 +10,16 @@ import { supabase } from '../../services/supabase'
 
 function realTimeResponse(setMessagesList) {
     return supabase
-        .from('messages')
-        .on('INSERT', response => {
-            console.log(response)
-            setMessagesList(current => [response.new, ...current])
-        })
-        .subscribe()
+    .channel('channel_1')
+    .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'messages',
+    }, response => {
+        // console.log(response)
+        setMessagesList(current => [response.new, ...current])
+    })
+    .subscribe()
 }
 
 export default function Chat() {
@@ -40,7 +44,7 @@ export default function Chat() {
             content: message,
         }
         await supabase.from('messages').insert(newMessage)
-        // const response = await supabase.from('messages').insert(message)
+        // const response = await supabase.from('messages').insert(newMessage).select()
         // console.log(response)
         setMessage('')
     }
