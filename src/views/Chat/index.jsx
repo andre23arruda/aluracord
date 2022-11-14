@@ -117,34 +117,35 @@ export default function Chat() {
                         styleSheet={{
                             display: 'flex',
                             alignItems: 'flex-start',
+                            justifyContent: 'space-between',
+                            gap: '12px',
                         }}
                     >
-                        <TextField
-                            value={message}
-                            onChange={ event => setMessage(event.target.value) }
-                            onKeyPress={ event => sendMessage(event) }
-                            placeholder="Insira sua mensagem aqui..."
-                            type="textarea"
-                            styleSheet={{
-                                width: '100%',
-                                resize: 'none',
-                                padding: '6px 8px',
-                                marginRight: '12px',
-                                backgroundColor: appConfig.theme.colors.neutrals[800],
-                                color: appConfig.theme.colors.neutrals[200],
-                            }}
-                            textFieldColors={{
-                                neutral: {
-                                    textColor: appConfig.theme.colors.neutrals[200],
-                                    mainColor: appConfig.theme.colors.neutrals[900],
-                                    mainColorHighlight: appConfig.theme.colors.primary[500],
+                        <div style={{ flex: 1 }}>
+                            <TextField
+                                value={message}
+                                onChange={ event => setMessage(event.target.value) }
+                                onKeyPress={ event => sendMessage(event) }
+                                placeholder="Insira sua mensagem aqui..."
+                                type="textarea"
+                                styleSheet={{
+                                    padding: '6px 8px',
                                     backgroundColor: appConfig.theme.colors.neutrals[800],
-                                },
-                            }}
-                        />
+                                    color: appConfig.theme.colors.neutrals[200],
+                                }}
+                                textFieldColors={{
+                                    neutral: {
+                                        textColor: appConfig.theme.colors.neutrals[200],
+                                        mainColor: appConfig.theme.colors.neutrals[900],
+                                        mainColorHighlight: appConfig.theme.colors.primary[500],
+                                        backgroundColor: appConfig.theme.colors.neutrals[800],
+                                    },
+                                }}
+                            />
+                        </div>
 
                         <Button
-                            iconName="FaRocketchat"
+                            label={<img src='/images/send-message.svg' height={20} width={20} />}
                             buttonColors={{
                                 contrastColor: appConfig.theme.colors.neutrals['000'],
                                 mainColor: appConfig.theme.colors.primary[500],
@@ -152,7 +153,9 @@ export default function Chat() {
                                 mainColorStrong: appConfig.theme.colors.primary[600],
                             }}
                             styleSheet={{
-                                fontSize: '18pt',
+                                height: '50px',
+                                width: '50px',
+                                borderRadius: '50%',
                                 lineHeight: 0.1,
                                 display: 'flex',
                                 alignItems: 'center',
