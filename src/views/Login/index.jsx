@@ -121,7 +121,7 @@ export default function Login() {
                             borderColor: appConfig.theme.colors.neutrals[999],
                             borderRadius: '10px',
                             flex: 1,
-                            minHeight: '240px',
+                            height: '245px',
                             gap: '16px',
                         }}
                     >
