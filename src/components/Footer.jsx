@@ -9,8 +9,7 @@ export default function Footer() {
             styleSheet={{
                 display: 'flex',
                 alignItems: 'center',
-                position: 'absolute',
-                bottom: '1.2rem',
+                marginBottom: '1rem',
                 fontSize: '0.8rem',
                 color: appConfig.theme.colors.neutrals[200]
             }}
