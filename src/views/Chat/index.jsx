@@ -4,6 +4,7 @@ import { Box, Button, TextField } from '@skynexui/components'
 import Header from '../../components/Header'
 import MessageList from '../../components/MessageList'
 import Loading from '../../components/Loading'
+import Footer from '../../components/Footer'
 
 import appConfig from '../../../config.json'
 import { supabase } from '../../services/supabase'
@@ -69,7 +70,8 @@ export default function Chat() {
     return (
         <Box
             styleSheet={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                display: 'flex',
+                justifyContent: 'center',
                 backgroundColor: appConfig.theme.colors.primary[500],
                 backgroundImage: `url(${ appConfig.background })`,
                 backgroundRepeat: 'no-repeat',
@@ -88,8 +90,9 @@ export default function Chat() {
                     backgroundColor: appConfig.theme.colors.neutrals[700],
                     height: '100%',
                     maxWidth: '95%',
-                    maxHeight: '95vh',
-                    padding: '32px',
+                    maxHeight: '90vh',
+                    padding: '25px',
+                    marginTop: '1rem'
                 }}
             >
                 <Header />
@@ -167,6 +170,8 @@ export default function Chat() {
                     </Box>
                 </Box>
             </Box>
+
+            <Footer />
         </Box>
     )
 }

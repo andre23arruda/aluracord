@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Box, Button, Text, TextField, Image } from '@skynexui/components'
+import Footer from '../../components/Footer'
 
 import appConfig from '../../../config.json'
 
@@ -112,6 +113,7 @@ export default function Login() {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
+                            justifyContent: 'center',
                             maxWidth: '200px',
                             padding: '16px',
                             backgroundColor: appConfig.theme.colors.neutrals[800],
@@ -120,12 +122,12 @@ export default function Login() {
                             borderRadius: '10px',
                             flex: 1,
                             minHeight: '240px',
+                            gap: '16px',
                         }}
                     >
                         <Image
                             styleSheet={{
                                 borderRadius: '50%',
-                                marginBottom: '16px',
                             }}
                             src={username ? `https://github.com/${ username }.png` : '/images/user-1.png'}
                             onLoad={ ({currentTarget}) => {
@@ -155,6 +157,8 @@ export default function Login() {
                         )}
                     </Box>
                 </Box>
+
+                <Footer />
             </Box>
         </>
     )
