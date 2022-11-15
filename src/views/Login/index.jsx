@@ -142,7 +142,7 @@ export default function Login() {
                             }}
                         />
 
-                        { userExist && (
+                        { (userExist && username) && (
                             <Text
                                 variant="body4"
                                 styleSheet={{
